@@ -1,1 +1,46 @@
-Raj2k01/test
+package feature;
+
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
+
+public class restAssuredPractice {
+	@Test
+	public void getRequestExample() {
+		Response response=RestAssured.get("https://reqres.in/api/users/3");
+		ResponseBody responsebody=response.getBody();
+		System.out.println(responsebody.asPrettyString());
+	}
+
+}
+
+
+CONSOLE OUTPUT:
+
+{
+    "data": {
+        "id": 3,
+        "email": "emma.wong@reqres.in",
+        "first_name": "Emma",
+        "last_name": "Wong",
+        "avatar": "https://reqres.in/img/faces/3-image.jpg"
+    },
+    "support": {
+        "url": "https://reqres.in/#support-heading",
+        "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+    }
+}
+PASSED: getRequestExample
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
